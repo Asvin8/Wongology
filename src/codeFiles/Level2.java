@@ -11,6 +11,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.nio.file.Path;
 import java.util.HashMap;
 import javax.swing.*;
 
@@ -243,28 +244,28 @@ public class Level2 extends JPanel implements Runnable, KeyListener {
         try {
 
             // rendering game images
-            backgroundImage1 = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/back1.png");
-            tracker.addImage(background, 0);
-            platformImage = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/platformImage.png");
+            backgroundImage1 = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "level2back1.png").toString());
+            tracker.addImage(backgroundImage1, 0);
+            platformImage = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "plane (8).png").toString());
             tracker.addImage(platformImage, 1);
-            searchEnemyImage = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/ArrayListMonster.png");
-            tracker.addImage(arrayListEnemyImage, 2);
-            arrayListEnemyImage = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/SearchMonster.png");
-            tracker.addImage(searchEnemyImage, 3);
-            playerImageLeft = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/wongleft.png");
+            searchEnemyImage = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "bestarrymon.png").toString());
+            tracker.addImage(searchEnemyImage, 2);
+            arrayListEnemyImage = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "arraylistmonster (2).png").toString());
+            tracker.addImage(arrayListEnemyImage, 3);
+            playerImageLeft = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "wongleft.png").toString());
             tracker.addImage(playerImageLeft, 4);
-            playerImageRight = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/wongright.png");
+            playerImageRight = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "wongright.png").toString());
             tracker.addImage(playerImageRight, 5);
-            backgroundImage2 = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/back2.png");
-            tracker.addImage(background, 6);
-            backgroundImage3 = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/back3.png");
-            tracker.addImage(background, 7);
-            backgroundImage4 = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/back4.png");
-            tracker.addImage(background, 8);
-            unknownMonsterImage = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/unknownMonster.png");
-            tracker.addImage(background, 9);
-            comparatorMonsterImage = Toolkit.getDefaultToolkit().getImage("src/Level2Pics/ComparatorMonster.png");
-            tracker.addImage(background, 10);
+            backgroundImage2 = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "level2back2.png").toString());
+            tracker.addImage(backgroundImage2, 6);
+            backgroundImage3 = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "level2back3.png").toString());
+            tracker.addImage(backgroundImage3, 7);
+            backgroundImage4 = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "level2back4.png").toString());
+            tracker.addImage(backgroundImage4, 8);
+            unknownMonsterImage = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "plane (11).png").toString());
+            tracker.addImage(unknownMonsterImage, 9);
+            comparatorMonsterImage = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level2", "plane (12).png").toString());
+            tracker.addImage(comparatorMonsterImage, 10);
 
         } catch (Exception e) {
             System.out.println("Error loading images");
@@ -549,4 +550,3 @@ class Platform {
         this.y = y;
     }
 }
-

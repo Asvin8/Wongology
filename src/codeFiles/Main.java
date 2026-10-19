@@ -13,6 +13,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -48,29 +50,37 @@ public class Main extends JPanel implements Runnable, KeyListener {
     public Main() {
         setPreferredSize(new Dimension(screenWidth, screenHeight));
         setVisible(true);
-
-        try {
-            // background music
-            AudioInputStream sound = AudioSystem.getAudioInputStream(new File("src/BackgroundMusic.wav"));
-            backgroundMusic = AudioSystem.getClip();
-            backgroundMusic.open(sound);
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        loadBackgroundMusic();
 
         thread = new Thread(this);
         thread.start();
+    }
+
+    private void loadBackgroundMusic() {
+        Path musicPath = Path.of("assets", "BackgroundMusic.wav");
+        if (!Files.exists(musicPath)) {
+            System.out.println("Background music not found at " + musicPath + ". Starting without music.");
+            backgroundMusic = null;
+            return;
+        }
+        try {
+            // background music
+            AudioInputStream sound = AudioSystem.getAudioInputStream(new File(musicPath.toString()));
+            backgroundMusic = AudioSystem.getClip();
+            backgroundMusic.open(sound);
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            System.out.println("Background music could not be loaded. Starting without music.");
+            backgroundMusic = null;
+        }
     }
 
     // This code runs the entire game
     @Override
     public void run() {
         loadBackgroundAndPlatforms();
-        backgroundMusic.start();
+        if (backgroundMusic != null) {
+            backgroundMusic.start();
+        }
         while (true) {
             this.repaint();
             try {
@@ -133,20 +143,20 @@ public class Main extends JPanel implements Runnable, KeyListener {
 
         // rendering game images
         try {
-            About = Toolkit.getDefaultToolkit().getImage("src/DriverPics/About.png");
+            About = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "New Project (8).png").toString());
             tracker.addImage(About, 0);
-            Credits = Toolkit.getDefaultToolkit().getImage("src/DriverPics/Credits.png");
+            Credits = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "New Project (9).png").toString());
             tracker.addImage(Credits, 1);
-            GameOver = Toolkit.getDefaultToolkit().getImage("src/DriverPics/GameOver.png");
+            GameOver = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "New Project (10).png").toString());
             tracker.addImage(GameOver, 2);
-            Instructions = Toolkit.getDefaultToolkit().getImage("src/DriverPics/Instructions.png");
+            Instructions = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "instructionsupdate.png").toString());
             tracker.addImage(Instructions, 3);
-            Levels = Toolkit.getDefaultToolkit().getImage("src/DriverPics/Levels.png");
+            Levels = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "levelupdated.png").toString());
             tracker.addImage(Levels, 4);
-            Start = Toolkit.getDefaultToolkit().getImage("src/DriverPics/Start.png");
+            Start = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "New Project (7).png").toString());
             tracker.addImage(Start, 5);
-            mark = Toolkit.getDefaultToolkit().getImage("src/Marks.png");
-            tracker.addImage(mark, 5);
+            mark = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "ui", "marks.png").toString());
+            tracker.addImage(mark, 6);
         } catch (Exception e) {
             System.out.println("Error loading images");
         }

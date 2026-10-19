@@ -16,6 +16,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.nio.file.Path;
 import java.util.*;
 
 import javax.swing.*;
@@ -75,28 +76,28 @@ public class Level1 extends JPanel implements Runnable, KeyListener {
 
         try {
             // rendering game images
-            startScreen = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/level1back.png");
+            startScreen = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "level1back.png").toString());
             tracker.addImage(startScreen, 0);
-            playerImageRight = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/wongright.png");
-            tracker.addImage(playerImageLeft, 1);
-            playerImageLeft = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/wongleft.png");
-            tracker.addImage(playerImageRight, 2);
-            playerImageUp = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/wongback.png");
-            tracker.addImage(playerImageLeft, 3);
-            playerImageDown = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/wongforward.png");
-            tracker.addImage(playerImageRight, 4);
-            computer = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/computer.png");
-            tracker.addImage(computer, 4);
-            exceptionMon = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/exceptionmonster.png");
-            tracker.addImage(computer, 4);
-            fileMon = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/filemonster.png");
-            tracker.addImage(computer, 4);
-            stringMon = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/stringmonster.png");
-            tracker.addImage(computer, 4);
-            binaryMon = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/binaryMonster.png");
-            tracker.addImage(computer, 4);
-            dark = Toolkit.getDefaultToolkit().getImage("src/Level1Pics/dark.png");
-            tracker.addImage(dark, 4);
+            playerImageRight = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "wongright.png").toString());
+            tracker.addImage(playerImageRight, 1);
+            playerImageLeft = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "wongleft.png").toString());
+            tracker.addImage(playerImageLeft, 2);
+            playerImageUp = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "wongback.png").toString());
+            tracker.addImage(playerImageUp, 3);
+            playerImageDown = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "wongforward.png").toString());
+            tracker.addImage(playerImageDown, 4);
+            computer = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "computer.png").toString());
+            tracker.addImage(computer, 5);
+            exceptionMon = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "exceptionmonster.png").toString());
+            tracker.addImage(exceptionMon, 6);
+            fileMon = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "filemonster.png").toString());
+            tracker.addImage(fileMon, 7);
+            stringMon = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "stringmonster.png").toString());
+            tracker.addImage(stringMon, 8);
+            binaryMon = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "binarymonster.png").toString());
+            tracker.addImage(binaryMon, 9);
+            dark = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "level1", "dark.png").toString());
+            tracker.addImage(dark, 10);
 
             System.out.println("Images loaded!");
 

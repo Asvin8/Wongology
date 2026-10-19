@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -178,32 +179,32 @@ public class Battle extends JPanel implements Runnable, KeyListener {
 
         try {
             // Load battle screen image based on monster type
-            if(Level2.monsterType == 2) {
-                battleScreen = Toolkit.getDefaultToolkit().getImage("src/BattlePics/ArrayListMonsterBattle.png");
+            if(Main.monsterType == 2) {
+                battleScreen = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "ArrayListMonsterBattle.png").toString());
                 tracker.addImage(battleScreen, 0);
-            } else if(Level2.monsterType == 3) {
-                battleScreen = Toolkit.getDefaultToolkit().getImage("src/BattlePics/BinarySearchMonsterBattle.png");
+            } else if(Main.monsterType == 3) {
+                battleScreen = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "BinarySearchMonsterBattle.png").toString());
                 tracker.addImage(battleScreen, 0);
-            } else if(Level2.monsterType == 4) {
-                battleScreen = Toolkit.getDefaultToolkit().getImage("src/BattlePics/ComparatorMonsterBattle.png");
+            } else if(Main.monsterType == 4) {
+                battleScreen = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "ComparatorMonsterBattle.png").toString());
                 tracker.addImage(battleScreen, 0);
             } else {
-                battleScreen = Toolkit.getDefaultToolkit().getImage("src/BattlePics/MonsterBattle.png");
+                battleScreen = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "MonsterBattle.png").toString());
                 tracker.addImage(battleScreen, 0);
             }
 
             // Load player health images
-            health1Player = Toolkit.getDefaultToolkit().getImage("src/BattlePics/1Health.png");
+            health1Player = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "1Health.png").toString());
             tracker.addImage(health1Player, 1);
 
-            health2Player = Toolkit.getDefaultToolkit().getImage("src/BattlePics/2Health.png");
+            health2Player = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "2Health.png").toString());
             tracker.addImage(health2Player, 2);
 
-            health3Player = Toolkit.getDefaultToolkit().getImage("src/BattlePics/3Health.png");
+            health3Player = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "3Health.png").toString());
             tracker.addImage(health3Player, 3);
 
-            health4Player = Toolkit.getDefaultToolkit().getImage("src/BattlePics/4Health.png");
-            tracker.addImage(health3Player, 4);
+            health4Player = Toolkit.getDefaultToolkit().getImage(Path.of("assets", "battle", "4Health.png").toString());
+            tracker.addImage(health4Player, 4);
 
             // Monster health images are same as player health images
             health1Monster = health1Player;
