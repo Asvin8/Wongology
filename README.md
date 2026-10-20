@@ -17,3 +17,7 @@ java -cp out codeFiles.Main
 ```
 
 Run the game from the repository root so it can find the `assets` folder. Press spacebar on the title screen to start.
+
+## Credits
+
+- **Background music:** "Level 1" from *5 Chiptunes (Action)* by Juhani Junkala (SubspaceAudio) — https://opengameart.org/content/5-chiptunes-action — License: CC0 (public domain). Converted to 22050 Hz 16-bit stereo WAV.
