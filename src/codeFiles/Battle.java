@@ -164,11 +164,11 @@ public class Battle extends JPanel implements Runnable, KeyListener {
     public void loadQuestions() {
         // Load questions based on level
         if(level == 1) {
-            questions = new HashMap<>(Main.Level1Questions);
+            questions = new HashMap<>(Level1Questions);
         } else if (level == 2) {
-            questions = new HashMap<>(Main.Level1Questions);
+            questions = new HashMap<>(Level1Questions);
         } else if (level == 3) {
-            questions = new HashMap<>(Main.Level3Questions);
+            questions = new HashMap<>(Level3Questions);
         }
 
     }

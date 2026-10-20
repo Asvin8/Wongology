@@ -17,6 +17,7 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Level2 extends JPanel implements Runnable, KeyListener {
+    public static int lvl2Points = 0;
 
     Thread thread;
     int FPS = 60;

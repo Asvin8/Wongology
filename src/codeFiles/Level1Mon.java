@@ -1,3 +1,5 @@
+package codeFiles;
+
 public class Level1Mon implements Comparable<Level1Mon>{
 
     int x,y;
