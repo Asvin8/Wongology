@@ -68,7 +68,7 @@ public class Main extends JPanel implements Runnable, KeyListener {
             AudioInputStream sound = AudioSystem.getAudioInputStream(new File(musicPath.toString()));
             backgroundMusic = AudioSystem.getClip();
             backgroundMusic.open(sound);
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException | IllegalArgumentException e) {
             System.out.println("Background music could not be loaded. Starting without music.");
             backgroundMusic = null;
         }
